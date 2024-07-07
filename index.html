@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Донатный сайт</title>
+</head>
+<body>
+    <h1>Донатный сайт</h1>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <label for="status">Выберите статус:</label>
+        <select name="status" id="status">
+            <option value="">Выберите статус</option>
+            <option value="D.Модер">D.Модер (500 руб.)</option>
+            <option value="D.Админ">D.Админ (1000 руб.)</option>
+            <option value="VIP">VIP (2000 руб.)</option>
+            <option value="OLD">OLD (5000 руб.)</option>
+        </select>
+        <input type="submit" name="submit" value="Оплатить">
+    </form>
+    <button onclick="sendSupportMessage()">Связь с поддержкой</button>
+
+    <script>
+        function sendSupportMessage() {
+            // Отправка сообщения в Discord-канал
+            fetch('/support', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: 'Пользователь запросил связь с поддержкой' })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Сообщение отправлено в поддержку!');
+                } else {
+                    alert('Произошла ошибка при отправке сообщения.');
+                }
+            })
+            .catch(error => {
+                alert('Произошла ошибка при отправке сообщения: ' + error);
+            });
+        }
+    </script>
+</body>
+</html>
