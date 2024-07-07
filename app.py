@@ -4,7 +4,7 @@ import discord
 app = Flask(__name__)
 
 # Настройки Discord-бота
-DISCORD_TOKEN = 'your_discord_bot_token'
+DISCORD_TOKEN = 'MTI1ODcxODA0NDAzNzg0MTAyMw.GMmZnb.lF6Zhs87uH-rHkb1toqQI66ryEllhQ3jyZ-77Y'
 DISCORD_CHANNEL_ID = '1213106308136304690'
 
 # Инициализация Discord-клиента
