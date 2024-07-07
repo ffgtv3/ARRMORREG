@@ -1,33 +1,10 @@
-from flask import Flask, request, render_template
-import discord
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Настройки Discord-бота
-DISCORD_TOKEN = 'MTI1ODcxODA0NDAzNzg0MTAyMw.GMmZnb.lF6Zhs87uH-rHkb1toqQI66ryEllhQ3jyZ-77Y'
-DISCORD_CHANNEL_ID = '1213106308136304690'
-
-# Инициализация Discord-клиента
-client = discord.Client()
-
 @app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/support', methods=['POST'])
-def support():
-    message = request.json['message']
-    send_discord_message(message)
-    return 'OK'
-
-def send_discord_message(message):
-    @client.event
-    async def on_ready():
-        channel = client.get_channel(int(DISCORD_CHANNEL_ID))
-        await channel.send(message)
-        client.close()
-
-    client.run(DISCORD_TOKEN)
+def home():
+    return render_template('donate.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
