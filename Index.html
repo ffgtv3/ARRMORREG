@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма Доната</title>
+</head>
+<body>
+    <h1>Введите размер доната</h1>
+    <form method="POST">
+        <label>
+            <input type="radio" name="amount" value="100" required> 100 рублей
+        </label><br>
+        <label>
+            <input type="radio" name="amount" value="200" required> 200 рублей
+        </label><br>
+        <label>
+            <input type="radio" name="amount" value="10" required> 10 рублей
+        </label><br>
+        <label>
+            <input type="radio" name="amount" value="1" required> 1 рубль (огромная комиссия)
+        </label><br>
+
+        <label for="name">Ваше имя:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label>
+            <input type="checkbox" name="agree" value="yes" required> Я соглашаюсь с нашей политикой
+        </label><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>
